@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.json.JSONArray;
+
 
 @Entity
 public class Task {
@@ -18,6 +20,9 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
+
+
+    private String state;
 
     @Temporal(TemporalType.TIMESTAMP) //make sure this is a DATE+TIME in the database
     private Date creationDate;
@@ -28,26 +33,13 @@ public class Task {
     private int priority; //from 1 down to 10 (DESC)
 
     private long  parent; //stores parent's id; if there is no parent, id = -1
-    //private long[] children; //stores children's id; probably a different collection in the future
 
     //private String attachments;
 
-    private String content; //meant to be a JSON file; it may contain text, images,
+    private JSONObject content;
 
-    //constructors
-
-    public Task(){
-    }
-
-    public Task(String title, int priority, String content) {
-        this.title = title;
-        this.priority = priority;;
-        this.content = content;
-    }
-
-
-        //more constructors on their way...
-
+    //constructor
+    public Task(){}
 
     //getters and setters
 
@@ -66,6 +58,10 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getState() { return state; }
+
+    public void setState(String state) { this.state = state; }
 
     public Date getCreationDate() { return creationDate; }
 
@@ -87,26 +83,15 @@ public class Task {
 
     public void setParent(long parent) { this.parent = parent; }
 
-    /*
-        public long[] getChildren() {
-            return children;
-        }
-
-        public void setChildren(long[] children) {
-            this.children = children;
-        }
-
-        public String getAttachments() {
-            return attachments;
-        }
-
-        public void setAttachments(String attachments) {
-            this.attachments = attachments;
-        }
-
-    */
     public String getContent() { return content; }
 
     public void setContent(String content) { this.content = content; }
+
+    /*
+    public String getAttachments() { return attachments; }
+
+    public void setAttachments(String attachments) { this.attachments = attachments; }
+
+    */
 
 }

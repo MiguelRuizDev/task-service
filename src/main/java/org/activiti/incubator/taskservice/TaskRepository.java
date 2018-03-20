@@ -14,8 +14,7 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 
 
 @RepositoryRestResource (collectionResourceRel = "tasks", path = "tasks")
-public interface TaskRepository extends PagingAndSortingRepository <Task, Long>,//thanks to this, we have find by ID
-                                        QueryDslPredicateExecutor<Task>
+public interface TaskRepository extends PagingAndSortingRepository <Task, Long> //, QueryDslPredicateExecutor<Task>
 
 {
 
@@ -30,10 +29,14 @@ public interface TaskRepository extends PagingAndSortingRepository <Task, Long>,
 
     List<Task> findByParent(@Param("parent") long parent_id);
 
-    //should there be a findByChild???
+    //dsl queries
 
+    @Query("select t from Task t where t.parent = ?1")
+    List<Task> findAllChildren(@Param("children") long id);
 
-    //EXPERIMENTS
+    @Query("select t from Task t where t.assignedUser = ?1 order by priority desc") //we can achieve more functionality
+    List<Task> findByPriorityUser(@Param("assignedUser") String assignedUser);
+    //the same would be done by: findByAssignedUserOrderByPriorityDesc(@Param("assignedUser") String assignedUser);
 
 
 }
