@@ -30,8 +30,6 @@ public class Task {
     private long  parent; //stores parent's id; if there is no parent, id = -1
     //private long[] children; //stores children's id; probably a different collection in the future
 
-    //private String url; //we'll get that with HAL
-
     //private String attachments;
 
     private String content; //meant to be a JSON file; it may contain text, images,
@@ -96,14 +94,6 @@ public class Task {
 
         public void setChildren(long[] children) {
             this.children = children;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
         }
 
         public String getAttachments() {

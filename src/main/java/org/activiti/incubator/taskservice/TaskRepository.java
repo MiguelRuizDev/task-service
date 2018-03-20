@@ -8,17 +8,21 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+
+
 
 @RepositoryRestResource (collectionResourceRel = "tasks", path = "tasks")
-public interface TaskRepository extends PagingAndSortingRepository <Task, Long>//thanks to this, we have find by ID
+public interface TaskRepository extends PagingAndSortingRepository <Task, Long>,//thanks to this, we have find by ID
+                                        QueryDslPredicateExecutor<Task>
 
 {
 
     List<Task> findByTitle(@Param("title") String title);
 
-    List<Task> findByCreationDate(@Param("creationDate") Date creation_date);
-
-    //List<Task> findByDueDate(@Param("dueDate") Date due_date);
+    List<Task> findByCreationDate(@Param("creationDate") Date creation_date); //not working in URL, don't know how to feed the proper data format
+    List<Task> findByDueDate(@Param("dueDate") Date due_date);//same
 
     List<Task> findByAssignedUser(@Param("assignedUser") String name);
 
