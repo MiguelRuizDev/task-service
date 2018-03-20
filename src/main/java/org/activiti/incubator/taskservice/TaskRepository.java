@@ -16,7 +16,7 @@ public interface TaskRepository extends PagingAndSortingRepository <Task, Long>/
 
     List<Task> findByTitle(@Param("title") String title);
 
-    //List<Task> findByCreationDate(@Param("creationDate") Date creation_date);
+    List<Task> findByCreationDate(@Param("creationDate") Date creation_date);
 
     //List<Task> findByDueDate(@Param("dueDate") Date due_date);
 
@@ -27,6 +27,10 @@ public interface TaskRepository extends PagingAndSortingRepository <Task, Long>/
     List<Task> findByParent(@Param("parent") long parent_id);
 
     //should there be a findByChild???
+
+
+    //EXPERIMENTS
+
 
 }
 

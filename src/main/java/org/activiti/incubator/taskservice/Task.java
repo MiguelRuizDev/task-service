@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 @Entity
 public class Task {
 
@@ -15,10 +19,12 @@ public class Task {
     private long id;
     private String title;
 
-    //private Date creationDate;
-    //private Date dueDate;
+    @Temporal(TemporalType.TIMESTAMP) //make sure this is a DATE+TIME in the database
+    private Date creationDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dueDate;
 
-    private String assignedUser; //just to test
+    private String assignedUser;
     private int priority; //from 1 down to 10 (DESC)
 
     private long  parent; //stores parent's id; if there is no parent, id = -1
@@ -28,7 +34,7 @@ public class Task {
 
     //private String attachments;
 
-    private String content; //meant to be a JSON file
+    private String content; //meant to be a JSON file; it may contain text, images,
 
     //constructors
 
@@ -62,46 +68,27 @@ public class Task {
     public void setTitle(String title) {
         this.title = title;
     }
-/*
-    public Date getCreationDate() {
-        return creationDate;
-    }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+    public Date getCreationDate() { return creationDate; }
 
-    public Date getDueDate() {
-        return dueDate;
-    }
+    public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
 
-    public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
-    }
-*/
-    public String getAssignedUser() {
-        return assignedUser;
-    }
+    public Date getDueDate() {return dueDate; }
 
-    public void setAssignedUser(String assignedUser) {
-        this.assignedUser = assignedUser;
-    }
+    public void setDueDate(Date dueDate) { this.dueDate = dueDate; }
 
-    public int getPriority() {
-        return priority;
-    }
+    public String getAssignedUser() { return assignedUser; }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
+    public void setAssignedUser(String assignedUser) { this.assignedUser = assignedUser; }
 
-    public long getParent() {
-        return parent;
-    }
+    public int getPriority() { return priority; }
 
-    public void setParent(long parent) {
-        this.parent = parent;
-    }
+    public void setPriority(int priority) { this.priority = priority; }
+
+    public long getParent() { return parent; }
+
+    public void setParent(long parent) { this.parent = parent; }
+
     /*
         public long[] getChildren() {
             return children;
@@ -128,12 +115,8 @@ public class Task {
         }
 
     */
-    public String getContent() {
-        return content;
-    }
+    public String getContent() { return content; }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    public void setContent(String content) { this.content = content; }
 
 }
