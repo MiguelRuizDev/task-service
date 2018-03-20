@@ -86,7 +86,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.196" level="project" />
-    <orderEntry type="library" name="Maven: org.json:json:unknown" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180130" level="project" />
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-apt:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-codegen:4.1.4" level="project" />
     <orderEntry type="library" name="Maven: com.mysema.codegen:codegen:0.6.8" level="project" />

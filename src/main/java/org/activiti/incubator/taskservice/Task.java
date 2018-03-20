@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 @Entity
@@ -83,9 +83,9 @@ public class Task {
 
     public void setParent(long parent) { this.parent = parent; }
 
-    public String getContent() { return content; }
+    public JSONObject getContent() { return content; }
 
-    public void setContent(String content) { this.content = content; }
+    public void setContent(JSONObject content) { this.content = content; }
 
     /*
     public String getAttachments() { return attachments; }
