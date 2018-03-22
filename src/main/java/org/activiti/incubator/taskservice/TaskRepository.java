@@ -7,14 +7,13 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+
 
 
 
 @RepositoryRestResource (collectionResourceRel = "tasks", path = "tasks")
-public interface TaskRepository extends PagingAndSortingRepository <Task, Long> //, QueryDslPredicateExecutor<Task>
+public interface TaskRepository extends PagingAndSortingRepository <Task, Long>
 
 {
 
@@ -28,6 +27,8 @@ public interface TaskRepository extends PagingAndSortingRepository <Task, Long> 
     List<Task> findByPriority(@Param("priority") int priority);
 
     List<Task> findByParent(@Param("parent") long parent_id);
+
+    List<Task> findByState(@Param("state") State state);
 
     //dsl queries
 

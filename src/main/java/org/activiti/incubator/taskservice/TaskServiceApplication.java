@@ -25,9 +25,6 @@ public class TaskServiceApplication {
 
         log.info("Everything OK"); //using the log for the first time in the app...
 
-
-
-
         //DATE TESTS
         Date dateTest = new Date();
 

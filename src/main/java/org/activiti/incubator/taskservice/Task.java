@@ -10,9 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.json.JSONArray;
-
-
 @Entity
 public class Task {
 
@@ -21,8 +18,7 @@ public class Task {
     private long id;
     private String title;
 
-
-    private String state;
+    private State state = State.ACTIVE; //this is the default state
 
     @Temporal(TemporalType.TIMESTAMP) //make sure this is a DATE+TIME in the database
     private Date creationDate;
@@ -34,9 +30,7 @@ public class Task {
 
     private long  parent; //stores parent's id; if there is no parent, id = -1
 
-    //private String attachments;
-
-    private JSONObject content;
+    private String content;
 
     //constructor
     public Task(){}
@@ -55,13 +49,11 @@ public class Task {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
-    public String getState() { return state; }
+    public State getState() { return state; }
 
-    public void setState(String state) { this.state = state; }
+    public void setState(State state) { this.state = state; }
 
     public Date getCreationDate() { return creationDate; }
 
@@ -86,12 +78,4 @@ public class Task {
     public String getContent() { return content; }
 
     public void setContent(String content) { this.content = content; }
-
-    /*
-    public String getAttachments() { return attachments; }
-
-    public void setAttachments(String attachments) { this.attachments = attachments; }
-
-    */
-
 }
