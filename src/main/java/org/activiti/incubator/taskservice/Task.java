@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.json.JSONArray;
-
 
 @Entity
 public class Task {
@@ -34,9 +32,7 @@ public class Task {
 
     private long  parent; //stores parent's id; if there is no parent, id = -1
 
-    //private String attachments;
-
-    private JSONObject content;
+    private String content;
 
     //constructor
     public Task(){}
@@ -87,11 +83,5 @@ public class Task {
 
     public void setContent(String content) { this.content = content; }
 
-    /*
-    public String getAttachments() { return attachments; }
-
-    public void setAttachments(String attachments) { this.attachments = attachments; }
-
-    */
 
 }
