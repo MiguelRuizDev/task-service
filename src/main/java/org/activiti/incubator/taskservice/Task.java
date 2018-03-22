@@ -20,7 +20,7 @@ public class Task {
     private String title;
 
 
-    private String state;
+    private State state = State.ACTIVE; //this is the default state
 
     @Temporal(TemporalType.TIMESTAMP) //make sure this is a DATE+TIME in the database
     private Date creationDate;
@@ -55,9 +55,9 @@ public class Task {
         this.title = title;
     }
 
-    public String getState() { return state; }
+    public State getState() { return state; }
 
-    public void setState(String state) { this.state = state; }
+    public void setState(State state) { this.state = state; }
 
     public Date getCreationDate() { return creationDate; }
 
