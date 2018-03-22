@@ -42,6 +42,8 @@ public class TaskServiceApplication {
             e.printStackTrace();
         }
 
+        log.info(State.COMPLETED);
+
 
 
 
