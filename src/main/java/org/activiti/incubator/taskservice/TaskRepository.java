@@ -12,6 +12,8 @@ import org.springframework.data.jpa.repository.Query;
 
 
 
+
+
 @RepositoryRestResource (collectionResourceRel = "tasks", path = "tasks")
 public interface TaskRepository extends PagingAndSortingRepository <Task, Long>
 

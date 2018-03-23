@@ -52,8 +52,6 @@
             <artifactId>h2</artifactId>
         </dependency>
 
-
-
         <!-- QUERYDSL -->
 
         <dependency>

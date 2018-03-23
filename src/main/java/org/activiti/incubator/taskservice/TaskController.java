@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class TaskController {
 
-    @RequestMapping("/suspend")
+    @RequestMapping("/demo")
     public HttpEntity <Task> task() {
         Task task = new Task();
 
