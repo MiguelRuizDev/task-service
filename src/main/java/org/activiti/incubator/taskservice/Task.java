@@ -16,9 +16,8 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
-
 
     private State state = State.ACTIVE; //this is the default state
 
@@ -30,7 +29,7 @@ public class Task {
     private String assignedUser;
     private int priority; //from 1 down to 10 (DESC)
 
-    private long  parent; //stores parent's id; if there is no parent, id = -1
+    private Long  parent; //stores parent's id; if there is no parent, id = -1
 
     private String content;
 
@@ -39,21 +38,13 @@ public class Task {
 
     //getters and setters
 
-    public long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title) { this.title = title; }
 
     public State getState() { return state; }
 
@@ -75,9 +66,9 @@ public class Task {
 
     public void setPriority(int priority) { this.priority = priority; }
 
-    public long getParent() { return parent; }
+    public Long getParent() { return parent; }
 
-    public void setParent(long parent) { this.parent = parent; }
+    public void setParent(Long parent) { this.parent = parent; }
 
     public String getContent() { return content; }
 

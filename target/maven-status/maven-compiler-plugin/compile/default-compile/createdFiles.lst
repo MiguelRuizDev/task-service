@@ -1,4 +1,6 @@
 org/activiti/incubator/taskservice/TaskServiceApplication.class
+org/activiti/incubator/taskservice/Greeting.class
+org/activiti/incubator/taskservice/GreetingController.class
 org/activiti/incubator/taskservice/TaskRepository.class
 org/activiti/incubator/taskservice/Task.class
 org/activiti/incubator/taskservice/TaskController.class
