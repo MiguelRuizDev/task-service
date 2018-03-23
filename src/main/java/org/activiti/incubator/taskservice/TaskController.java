@@ -1,18 +1,7 @@
 package org.activiti.incubator.taskservice;
 
-import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
-
-
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
-
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -22,9 +11,10 @@ public class TaskController {
     @Autowired
     TaskRepository db; //injection
 
-    @RequestMapping(path="/tasks/{id}/suspend", method=RequestMethod.POST) //whenever you don't know which one to use
+    @RequestMapping(path = "/tasks/{id}/suspend", method = RequestMethod.POST) //whenever you don't know which one to use
     public Task suspendTask(@PathVariable("id") Long id){
-        Task task = db.findById(id).get();
+
+        Task task = db.findById(id).get(); //java8 optionals
 
         //change staste
         if(task.getState() == State.ACTIVE){
@@ -33,8 +23,42 @@ public class TaskController {
 
         }
         //save modified object in db
+        db.save(task);
+
+        return task;
+    }
+
+
+    @RequestMapping(path = "/tasks/{id}/activate", method = RequestMethod.POST)
+    public Task activateTask (@PathVariable("id") Long id){
+
+        Task task = db.findById(id).get();
+
+        if(task.getState() == State.SUSPENDED){
+            task.setState(State.ACTIVE);
+        }else{
+
+        }
 
         db.save(task);
+
+        return task;
+    }
+
+
+    @RequestMapping(path = "/taks/{id}/complete", method = RequestMethod.POST)
+    public Task completeTask (@PathVariable("id") Long id){
+
+        Task task = db.findById(id).get();
+
+        if(task.getState() == State.ACTIVE){
+            task.setState(State.COMPLETED);
+        }else{
+
+        }
+
+        db.save(task);
+
         return task;
     }
 
