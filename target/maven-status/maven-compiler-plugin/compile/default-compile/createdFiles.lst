@@ -1,4 +1,5 @@
 org/activiti/incubator/taskservice/TaskServiceApplication.class
 org/activiti/incubator/taskservice/TaskRepository.class
 org/activiti/incubator/taskservice/Task.class
+org/activiti/incubator/taskservice/TaskController.class
 org/activiti/incubator/taskservice/State.class
